@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Phanindra 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Georgia', serif;
+            background-color: #ffebee;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .letter-container {
+            background: #fff;
+            padding: 20px;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: openLetter 2s ease forwards;
+        }
+        @keyframes openLetter {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .letter-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #d63384;
+        }
+        .letter-body {
+            font-size: 1.2em;
+            margin-top: 15px;
+            color: #555;
+        }
+        button {
+            font-size: 1.3em;
+            padding: 10px 20px;
+            margin: 15px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff1e4d;
+        }
+        .valentine-container, .love-message {
+            display: none;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        #no-btn {
+            position: relative;
+        }
+        .kiss-gif {
+            width: 250px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First Page: Letter -->
+    <div id="letter-container" class="letter-container">
+        <div class="letter-header">Hey Phanindra,</div>
+        <div class="letter-body">Can I ask you a question?</div>
+        <button onclick="goToQuestion()">Of course! 😊</button>
+    </div>
+
+    <!-- Second Page: Valentine Question -->
+    <div id="valentine-container" class="valentine-container">
+        <h1>Will you be my Valentine? 💕</h1>
+        <div class="btn-container">
+            <button onclick="showLoveMessage()">Yes</button>
+            <button id="no-btn" onmouseover="moveNoButton()">No</button>
+        </div>
+    </div>
+
+    <!-- Final Page: Love Message -->
+    <div id="love-message" class="love-message">
+        <h1>I knew you love me! 😘</h1>
+        <img src="https://mewtru.com/kiss.gif" alt="Kissing GIF" class="kiss-gif">
+    </div>
+
+    <script>
+        function goToQuestion() {
+            document.getElementById("letter-container").style.display = "none";
+            document.getElementById("valentine-container").style.display = "block";
+        }
+
+        function showLoveMessage() {
+            document.getElementById("valentine-container").style.display = "none";
+            document.getElementById("love-message").style.display = "block";
+        }
+
+        function moveNoButton() {
+            var noBtn = document.getElementById("no-btn");
+            var x = Math.random() * (window.innerWidth - 100);
+            var y = Math.random() * (window.innerHeight - 100);
+            noBtn.style.position = "absolute";
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+    </script>
+
+</body>
+</html>
